@@ -5,6 +5,7 @@ import { FilmStrip } from '@/components/FilmStrip';
 import { ViralClips } from '@/components/ViralClips';
 import { SimpleNode } from '@/components/SimpleNode';
 import { PlatformCluster } from '@/components/PlatformCluster';
+import { AutoEngagement } from '@/components/AutoEngagement';
 import { Dashboard } from '@/components/Dashboard';
 import { TournamentJoin } from '@/components/TournamentJoin';
 import { ConnectorPath } from '@/components/ConnectorPath';
@@ -36,6 +37,7 @@ export default function Home() {
     { component: FilmStrip, id: "film" },
     { component: ViralClips, id: "viral" },
     { component: PlatformCluster, id: "platform" },
+    { component: AutoEngagement, id: "engagement" },
     { component: (props: any) => <SimpleNode {...props} title="Global Audience" subtitle="Millions of viewers reached" icon={Users} color="text-purple-400" />, id: "viewers" },
     { component: Dashboard, id: "dashboard" },
     { component: (props: any) => <SimpleNode {...props} title="Verification Locked" subtitle="Tournament Entry Required" icon={Lock} color="text-red-400" />, id: "locked" },
