@@ -6,10 +6,11 @@ import { ViralClips } from '@/components/ViralClips';
 import { SimpleNode } from '@/components/SimpleNode';
 import { PlatformCluster } from '@/components/PlatformCluster';
 import { AutoEngagement } from '@/components/AutoEngagement';
+import { GlobalAudience } from '@/components/GlobalAudience';
 import { Dashboard } from '@/components/Dashboard';
 import { TournamentJoin } from '@/components/TournamentJoin';
 import { ConnectorPath } from '@/components/ConnectorPath';
-import { Users, Lock, Unlock, CheckCircle, Repeat } from 'lucide-react';
+import { Lock, Unlock, CheckCircle, Repeat } from 'lucide-react';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,7 @@ export default function Home() {
     { component: ViralClips, id: "viral" },
     { component: PlatformCluster, id: "platform" },
     { component: AutoEngagement, id: "engagement" },
-    { component: (props: any) => <SimpleNode {...props} title="Global Audience" subtitle="Millions of viewers reached" icon={Users} color="text-purple-400" />, id: "viewers" },
+    { component: GlobalAudience, id: "global" },
     { component: Dashboard, id: "dashboard" },
     { component: (props: any) => <SimpleNode {...props} title="Verification Locked" subtitle="Tournament Entry Required" icon={Lock} color="text-red-400" />, id: "locked" },
     { component: (props: any) => <SimpleNode {...props} title="Access Granted" subtitle="Welcome to the Arena" icon={Unlock} color="text-green-400" />, id: "unlocked" },
