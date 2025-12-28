@@ -84,7 +84,7 @@ export function PlatformCluster({ scrollProgress, chapterProgress }: { scrollPro
         const rect = el.getBoundingClientRect();
         positions.push({
           x: rect.left + rect.width / 2 - containerRect.left,
-          y: rect.top + rect.height / 2 - containerRect.top
+          y: rect.top - containerRect.top + 8 // Target just above the icon top edge
         });
       });
       setIconPositions(positions);
@@ -141,10 +141,10 @@ export function PlatformCluster({ scrollProgress, chapterProgress }: { scrollPro
             </motion.div>
           </div>
 
-          {/* SVG Animated Lines - Positioned absolutely to connect source to icons */}
+          {/* SVG Animated Lines - Positioned absolutely, behind icons */}
           <svg 
-            className="absolute inset-0 w-full h-full pointer-events-none z-0" 
-            style={{ overflow: 'visible' }}
+            className="absolute inset-0 w-full h-full pointer-events-none" 
+            style={{ overflow: 'visible', zIndex: -1 }}
           >
             <defs>
               <linearGradient id="cyanLineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -200,8 +200,8 @@ export function PlatformCluster({ scrollProgress, chapterProgress }: { scrollPro
             })}
           </svg>
 
-          {/* Platform Icons Grid - Clean aligned grid 6x2 */}
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 md:gap-5 relative z-10">
+          {/* Platform Icons Grid - Clean aligned grid 6x2, pushed down so lines feed into top */}
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 md:gap-5 relative mt-10">
             {platforms.map((platform, index) => {
               const Icon = platform.icon;
               return (
