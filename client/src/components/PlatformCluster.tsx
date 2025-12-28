@@ -11,7 +11,8 @@ import {
   SiReddit,
   SiDiscord,
   SiLinkedin,
-  SiThreads
+  SiThreads,
+  SiMastodon
 } from "react-icons/si";
 import { useEffect, useRef, useState } from "react";
 
@@ -33,6 +34,7 @@ const platforms: Platform[] = [
   { name: "LinkedIn", icon: SiLinkedin, delay: 0.4 },
   { name: "Bluesky", icon: SiBluesky, delay: 0.45 },
   { name: "Threads", icon: SiThreads, delay: 0.5 },
+  { name: "Mastodon", icon: SiMastodon, delay: 0.55 },
 ];
 
 export function PlatformCluster({ scrollProgress, chapterProgress }: { scrollProgress: number; chapterProgress: number }) {
@@ -141,7 +143,7 @@ export function PlatformCluster({ scrollProgress, chapterProgress }: { scrollPro
 
           {/* SVG Animated Lines - Positioned absolutely to connect source to icons */}
           <svg 
-            className="absolute inset-0 w-full h-full pointer-events-none z-10" 
+            className="absolute inset-0 w-full h-full pointer-events-none z-0" 
             style={{ overflow: 'visible' }}
           >
             <defs>
@@ -198,8 +200,8 @@ export function PlatformCluster({ scrollProgress, chapterProgress }: { scrollPro
             })}
           </svg>
 
-          {/* Platform Icons Grid - Clean aligned grid */}
-          <div className="grid grid-cols-4 sm:grid-cols-6 gap-4 md:gap-5 relative z-20">
+          {/* Platform Icons Grid - Clean aligned grid 6x2 */}
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 md:gap-5 relative z-10">
             {platforms.map((platform, index) => {
               const Icon = platform.icon;
               return (
